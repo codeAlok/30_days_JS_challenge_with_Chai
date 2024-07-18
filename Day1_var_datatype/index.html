@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day1 || variable and data type</title>
+</head>
+<body>
+    <h1>It's working</h1>
+
+    <script>
+        // ***** Activity 1 (variable Declaration) *****
+        // ** task 1 **
+        var num1 = 100;
+        console.log(num1);
+
+        // ** Task 2  **
+        let num2 = "alok";
+        console.log(num2);
+
+
+        // ***** Activity 2 (Constant Declaration) *****
+        // ** Task 3  **
+        const num3 = true;
+        console.log(num3);
+
+
+        // ***** Activity 3 (Data types) *****
+        // ** Task 4  **
+        let var1 = 12345.45;
+        let var2 = "ChaiCode";
+        let var3 = false;
+        let var4 = {
+            id: 2,
+            name: "alok",
+        };
+
+        let var5 = [10, 20 , 30];
+
+        console.log(typeof var1); // number
+        console.log(typeof var2); // string
+        console.log(typeof var3); // boolean
+        console.log(typeof var4); // object
+        console.log(typeof var5); // object
+
+
+        // ***** Activity 4 (reassigning variables) *****
+        // ** Task 5  **
+        let value = 10;
+        value = 15;
+        console.log(value); // 15
+
+
+        // ***** Activity 5 (Understanding const) *****
+        // ** Task 6  **
+        const constVar = 50;
+        // constVar = 100; // typeError: can't reassign const variable
+
+
+        // ***** Feature Request *****
+        // ** Task 1  **
+        let var6 = null;
+        let var7 = undefined;
+        
+        console.log(typeof var1 + " " , var1); // number
+        console.log(typeof var2 + " " , var2); // string
+        console.log(typeof var3 + " " , var3); // boolean
+        console.log(typeof var4 + " " , var4); // object
+        console.log(typeof var5 + " " , var5); // object
+        console.log(typeof var6 + " " , var6); // object
+        console.log(typeof var7 + " " , var7); // undefined
+
+    </script>
+</body>
+</html>

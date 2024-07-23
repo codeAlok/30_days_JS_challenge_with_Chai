@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day10 || Event Handling</title>
+    <script src="day10_event_listeners.js" defer></script>
+
+    <style>
+        .img-div {
+            border: 2px solid red;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .img1 {
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgb(121, 240, 121);
+        }
+
+        input,
+        .info-para {
+            margin-top: 2px;
+            padding: 2px;
+        }
+
+        .info-para {
+            border: 2px solid rgb(88, 209, 88);
+        }
+
+        button,
+        .lists li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JS Event Handling</h1>
+
+    <p class="content" style="border: 2px solid red;">Content</p>
+    <button id="change">Change text</button>
+
+    <img class="img1" src="tree.jpg" alt="tree">
+
+    <p class="bg-change">demo para</p>
+
+    <!-- for activity 3 and 4 -->
+    <form action="#" id="form1">
+        <input class="first-name" name="fName" type="text" placeholder="your name" />
+
+        <input class="info" name="info" type="text" placeholder="Write info" />
+
+
+        <button type="submit">Submit</button>
+    </form>
+    <p class="info-para">Text of info box</p>
+
+    <!-- task 8 -->
+    <div style="border: 2px solid blue;">
+        <select id="items">
+            <option>item1</option>
+            <option>item2</option>
+            <option>item3</option>
+            <option>item4</option>
+        </select>
+
+        <p class="para2">Selected value: </p>
+    </div>
+
+
+    <!-- for Activity 5 -->
+    <div style="border: 2px solid brown; margin-top: 5px;">
+        <button class="add">Add item</button>
+        <ul class="lists">
+            <li>First item</li>
+            <li>second item</li>
+            <li>third item</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

@@ -38,7 +38,7 @@ const pValue = 121;
 console.log("MainM: ", checkPalindrome(pValue));
 
 
-// ***** Activity 4: Using Third-Party Modules *****
+// ***** Activity 3: Using Third-Party Modules *****
 // *** Task 5 ***
 import * as moduleObj from "./task5Module.js";
 
@@ -50,4 +50,37 @@ console.log("MainM circum: ", moduleObj.calculateCircumference(radius));
 
 console.log("MainM Area: ", moduleObj.calculateArea(radius));
 
+
+// ***** Activity 4: Using Third-Party Modules *****
+
+// *** Task 6: Install a third-party module (e.g., lodash) using npm. Import and use a function from this module in a script. ***
+
+// **** NOTE: lodash is a small library which make it easy to Iterating arrays, objects, & strings and some other task also ****
+
+import _ from "lodash";
+
+const numbers = [1, 2, 3, 4, 5, 6, 7];
+console.log(_.reverse(numbers));
+console.log(_.chunk(numbers, 3));
+console.log(_.difference(numbers, [2, 3, 8]));
+
+// *** Task 7: Install a third-party module (e.g., axios) using npm. Import and use this module to make a network request in a script. ***
+
+// ***** NOTE: axios is like a better option for fetching data compare to fetch() ****
+
+import axios from "axios";
+
+async function getData() {
+    try{
+        const user = await axios.get("  https://api.github.com/users/codeAlok");
+
+        console.log(user);
+        console.log(user.data.name);
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+
+getData();
 

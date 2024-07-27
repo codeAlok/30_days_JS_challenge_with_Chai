@@ -79,3 +79,33 @@ console.log(Student.studentNum);
 // ***** Activity 4: Getters and setters *****
 
 // *** Task 7: Add a getter method to the Person class to return the full name (assume a firstName and lastName property). Create an instance and log the full name using the getter.
+
+
+// *** Task 8: Add a setter method to the Person class to update the name properties ( firstname and lastname). Update the name using the setter and log the updated full name. ***
+
+class PersonClass {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    // Getter method for fullName
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    // Setter method for fullName
+    set updateName(name) {
+        const [firstName, lastName] = name.split(' ');
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+}
+
+const person = new PersonClass('Alok', 'kumar');
+
+console.log(person.fullName); // using getter
+
+person.updateName = 'Abhishek kumar';  // using setter
+
+console.log(person.fullName);  // using getter

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 20 || LocalStorage and Sessionstorage</title>
+    <script src="day20_storage.js" defer></script>
+</head>
+<body>
+
+    <h3>Form for LocalStorage</h3>
+    <form id="form1">
+        <div>
+            <label>Name:</label>
+            <input type="text" placeholder="Enter your name" class="localName">
+        </div>
+
+        <div>
+            <label>Email:</label>
+            <input type="email" placeholder="Enter your email" class="localEmail">
+        </div>
+
+        <button type="submit" value="submit">Submit</button>
+        <button type="reset" value="reset" id="removeLS">Reset</button>
+    </form>
+
+    <hr><hr>
+
+    <h3>Form for sessionStorage</h3>
+    <button class="setSS">Set Session Storage</button>
+
+    <form id="form2">
+        <div>
+            <label>Name:</label>
+            <input type="text" placeholder="Enter your name" class="sessionName">
+        </div>
+
+        <div>
+            <label>Email:</label>
+            <input type="email" placeholder="Enter your email" class="sessionEmail">
+        </div>
+
+        <button type="submit" value="submit">Submit</button>
+        <button type="reset" value="reset" id="removeSS">Reset</button>
+    </form>
+
+    <hr>
+    <button id="resetAll">Reset All Data (seesion and Local)</button>
+</body>
+</html>

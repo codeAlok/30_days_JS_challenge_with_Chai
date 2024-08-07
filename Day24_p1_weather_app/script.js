@@ -14,7 +14,7 @@
 // *** Task 5: Add an input field and a search button to the HTML structure. Style the input and button using CSS. 
 
 // *** Task 6: Write a function to fetch and display weather data for a city entered in the search input field. Log any errors to the console.
-import {API_KEY} from "./config.js"
+import { API_KEY } from "./config.js"
 
 const WEATHER_API_KEY = API_KEY;
 const city = document.querySelector('.city');
@@ -23,20 +23,20 @@ const weatherCondition = document.querySelector('.weather');
 const searchBtn = document.getElementById('search-btn');
 const cityName = document.getElementById('city-name');
 
-async function getCurrentWeather(cityName='Delhi'){
-    try{
+async function getCurrentWeather(cityName = 'Delhi') {
+    try {
         const currentWeatherJSON = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric`);
-        
+
         const currentWeatherData = await currentWeatherJSON.json();
         console.log(currentWeatherData);
-    
+
         // updating data on page
-        if(currentWeatherData.cod === 200){
+        if (currentWeatherData.cod === 200) {
             city.innerText = currentWeatherData.name;
             weatherCondition.innerText = currentWeatherData?.weather[0]?.main;
             currentTemp.innerHTML = `${currentWeatherData.main.temp} <sup>o</sup>C`;
         }
-        else{
+        else {
             throw new Error(`${currentWeatherData.message}`)
         }
     }
@@ -50,8 +50,9 @@ getCurrentWeather();
 
 // *** Refresh page with newData ***
 searchBtn.addEventListener('click', () => {
-    if(cityName.value !== ''){
+    if (cityName.value !== '') {
         getCurrentWeather(cityName.value);
+        getFiveDaysForecast(cityName.value);
     }
 });
 
@@ -60,6 +61,49 @@ searchBtn.addEventListener('click', () => {
 // *** Task 7: Use the 'fetch' API to get a 5-day weather forecast from the public weather API. Log the response data to the console.
 
 // *** Task 8: Parse the forecast data and display the temperature and weather condition for each day in the forecast on the web page. 
+async function getFiveDaysForecast(cityName = 'Delhi') {
+    const jsonData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric`);
+
+    const data = await jsonData.json();
+    
+    if (data.cod == 200) {
+        // ** Filter only unique Days data **
+        const regex = /\b\d{4}-\d{2}-\d{2}\b/g;
+
+        const filteredData = data.list.filter((item, idx, arr) => {
+            let matchDate = item.dt_txt.match(regex);
+
+            // match with current and nextData
+            if (idx < arr.length - 1) {
+                let NextMatch = arr[idx + 1].dt_txt.match(regex);
+
+                if (`"${NextMatch}"` !== `"${matchDate}"`) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            return true;
+        });
+
+        // create and add data
+        const dayReports = document.querySelectorAll('.day-report');
+
+        dayReports.forEach((item, idx) => {
+            item.children[0].innerHTML = `${filteredData[idx].main.temp} <sup>o</sup>C`;
+            item.children[1].innerText = filteredData[idx].weather[0].description;
+            item.children[2].innerText = filteredData[idx].dt_txt.match(regex);
+        })
+        console.log(dayReports)
+        console.log(filteredData);
+    }
+
+    console.log(data);
+}
+
+getFiveDaysForecast();
 
 
 // ***** Activity 5: Enhancing the UI *****

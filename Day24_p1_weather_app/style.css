@@ -4,3 +4,16 @@
     box-sizing: border-box;
 }
 
+.forecast{
+    border: 2px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast .day-report{
+    border: 1px solid green;
+    margin: 2px;
+    padding: 2px;
+    text-align: center;
+}

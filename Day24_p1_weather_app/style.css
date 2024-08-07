@@ -4,16 +4,105 @@
     box-sizing: border-box;
 }
 
+h1{
+    margin: 1rem;
+    text-align: center;
+}
+
+.search-area {
+    display: flex;
+    justify-content: center;
+}
+
+.search-area input {
+    min-width: 50vw;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+#search-btn {
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+#search-btn:hover{
+    background-color: skyblue;
+    color: white;
+    
+}
+.weather-card {
+    border: 2px solid skyblue;
+    width: 250px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(156, 229, 252);
+}
+
+.current-temp {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: rgb(228, 125, 41);
+}
+
+.weather {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgb(211, 155, 0)
+}
+
+.city {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
 .forecast{
-    border: 2px solid grey;
+    border: 1px solid grey;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+    padding: 0.5rem;
 }
 
 .forecast .day-report{
-    border: 1px solid green;
-    margin: 2px;
-    padding: 2px;
+    position: relative;
+    margin: 3px;
+    padding: 3px;
     text-align: center;
 }
+
+.day-report::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to top, rgba(0, 140, 255, 0.993), rgba(0, 123, 255, 0.747));
+    transition: height 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.day-report:hover::before {
+    height: 100%;
+}
+
+.day-report:hover {
+    color: white;
+}
+
+.forecast .day-report .day-degree,
+.forecast .day-report .day-date {
+    font-weight: 600;
+    color: rgb(255, 117, 4);
+}
+

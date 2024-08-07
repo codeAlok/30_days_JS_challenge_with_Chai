@@ -92,9 +92,11 @@ async function getFiveDaysForecast(cityName = 'Delhi') {
         const dayReports = document.querySelectorAll('.day-report');
 
         dayReports.forEach((item, idx) => {
-            item.children[0].innerHTML = `${filteredData[idx].main.temp} <sup>o</sup>C`;
-            item.children[1].innerText = filteredData[idx].weather[0].description;
-            item.children[2].innerText = filteredData[idx].dt_txt.match(regex);
+            item.children[0].setAttribute('src', `http://openweathermap.org/img/w/${filteredData[idx].weather[0].icon}.png`);
+
+            item.children[1].innerHTML = `${filteredData[idx].main.temp} <sup>o</sup>C`;
+            item.children[2].innerText = filteredData[idx].weather[0].description;
+            item.children[3].innerText = filteredData[idx].dt_txt.match(regex);
         })
         console.log(dayReports)
         console.log(filteredData);
